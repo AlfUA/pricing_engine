@@ -1,7 +1,5 @@
 defmodule PricingEngine do
-  @moduledoc """
-  Documentation for `PricingEngine`.
-  """
+  @moduledoc false
   alias PricingEngine.Product
   alias PricingEngine.Products
   alias PricingEngine.Rule
