@@ -6,6 +6,11 @@
 - Run `iex -S mix` to start shell
 - Run `mix test` to run all the tests
 
+## Implementation notes
+- Current implementation supports only one type of discount per product
+- Current implementation supports only one type of discount (`percent off`) per rule
+## Installation
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
