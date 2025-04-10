@@ -39,7 +39,7 @@ defmodule PricingEngine do
       sum_by_product =
         product_code_to_rule
         |> Map.get(product_code, nil)
-        |> apply_rules_to_product(product_list)
+        |> apply_rule_to_product(product_list)
 
       acc + sum_by_product
     end)
@@ -49,12 +49,12 @@ defmodule PricingEngine do
     |> Money.to_string()
   end
 
-  defp apply_rules_to_product(nil, product_list), do: calculate_total_for_products(product_list)
+  defp apply_rule_to_product(nil, product_list), do: calculate_total_for_products(product_list)
 
-  defp apply_rules_to_product(%Rule{type: :apply_to_quantity} = rule, product_list),
+  defp apply_rule_to_product(%Rule{type: :apply_to_quantity} = rule, product_list),
     do: apply_quantity_rule(product_list, rule, 0)
 
-  defp apply_rules_to_product(%Rule{type: :apply_to_whole_group} = rule, product_list),
+  defp apply_rule_to_product(%Rule{type: :apply_to_whole_group} = rule, product_list),
     do: apply_whole_group_rule(product_list, rule)
 
   defp apply_quantity_rule([], _rule, acc), do: acc
